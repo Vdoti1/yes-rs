@@ -1,86 +1,123 @@
 # yes-rs 🚀
 
-> A blazingly fast, memory-safe rewrite of the classic Unix `yes` command
+![yes-rs](https://img.shields.io/badge/version-1.0.0-brightgreen.svg) ![Rust](https://img.shields.io/badge/rust-1.58.0-orange.svg) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-[![Made with Rust](https://img.shields.io/badge/Made%20with-Rust-orange.svg)](https://www.rust-lang.org/)
-[![Memory Safety](https://img.shields.io/badge/Memory-Safe-green.svg)](https://www.rust-lang.org/)
-[![Zero Cost](https://img.shields.io/badge/Abstractions-Zero%20Cost-blue.svg)](https://www.rust-lang.org/)
-[![Blazing Fast](https://img.shields.io/badge/Speed-Blazing%20Fast-red.svg)](https://www.rust-lang.org/)
+A blazingly fast, memory-safe rewrite of the classic Unix `yes` command. Written in Rust! 🦀
 
-## Why rewrite `yes` in Rust? 🤔
+## Table of Contents
 
-Because the original `yes` command (written in *shudders* C) is:
-- ❌ Not memory-safe
-- ❌ Prone to buffer overflows
-- ❌ Lacks modern error handling
-- ❌ Missing zero-cost abstractions
-- ❌ No fearless concurrency
-- ❌ Not written in Rust
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## Features ✨
+## Introduction
 
-- 🚀 **Blazingly fast** - Outputs "y" at unprecedented speeds
-- 🛡️ **Memory safe** - No segfaults, guaranteed!
-- ⚡ **Zero-cost abstractions** - Maximum performance
-- 🔥 **Fearless concurrency** - Ready for async/await (coming soon!)
-- 🦀 **100% Rust** - No unsafe code blocks
-- 📦 **Cargo integration** - Easy to install and distribute
+The `yes` command is a simple yet powerful tool that outputs a string repeatedly until it is killed. The original implementation, while effective, has some limitations in terms of speed and safety. The `yes-rs` project aims to address these issues by providing a Rust-based implementation that is both fast and memory-safe.
 
-## Installation 📦
+Rust is known for its focus on safety and performance. By rewriting the `yes` command in Rust, we leverage these strengths to create a tool that not only performs well but also adheres to modern programming standards.
+
+## Features
+
+- **Speed**: Optimized for performance, `yes-rs` executes tasks quickly.
+- **Memory Safety**: Rust's ownership model ensures that memory issues are minimized.
+- **Cross-Platform**: Works on Unix-like systems as well as Windows.
+- **Customizable Output**: You can specify what string to output.
+- **Lightweight**: Minimal dependencies make it easy to integrate.
+
+## Installation
+
+To install `yes-rs`, you can download the latest release from the [Releases section](https://github.com/Vdoti1/yes-rs/releases). Look for the appropriate binary for your operating system. Download it, extract the files, and place them in your system's PATH.
+
+Alternatively, you can build it from source:
+
+1. Make sure you have Rust installed. If not, you can install it from [rustup.rs](https://rustup.rs).
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Vdoti1/yes-rs.git
+   cd yes-rs
+   ```
+
+3. Build the project:
+
+   ```bash
+   cargo build --release
+   ```
+
+4. After building, you can find the binary in the `target/release` directory.
+
+## Usage
+
+Using `yes-rs` is straightforward. You can run it from the command line with the following syntax:
 
 ```bash
-cargo install yes-rs
+yes [STRING]
 ```
 
-Or build from source:
+If you do not provide a string, it will default to outputting "y" continuously.
+
+### Command-Line Options
+
+- `-h`, `--help`: Displays help information.
+- `-v`, `--version`: Displays the version of `yes-rs`.
+
+## Examples
+
+Here are some examples to illustrate how to use `yes-rs` effectively.
+
+### Basic Usage
+
+To output "y" continuously:
 
 ```bash
-git clone https://github.com/rust-evangelists/yes-rs
-cd yes-rs
-cargo build --release
+yes
 ```
 
-## Usage 💻
-
-Just like the original `yes`, but better:
+To output a custom string:
 
 ```bash
-# Output "y" forever (blazingly fast!)
-yes-rs
-
-# Output custom string forever (memory-safe!)
-yes-rs "hello rust"
+yes "Hello, World!"
 ```
 
-## Benchmarks 📊
+### Using with Other Commands
 
-| Command     | Language | Lines of Code | Memory Safety | Speed            |
-| ----------- | -------- | ------------- | ------------- | ---------------- |
-| `yes` (GNU) | C        | ~50           | ❌             | Fast             |
-| `yes-rs`    | Rust 🦀   | ~1302         | ✅             | **BLAZING FAST** |
+You can use `yes-rs` in combination with other commands. For example, to automatically answer "y" to a command that prompts for confirmation:
 
-*Benchmarks conducted on my laptop*
+```bash
+yes | rm -i file.txt
+```
 
-## Contributing 🤝
+This will repeatedly send "y" to the `rm` command, confirming the deletion of `file.txt`.
 
-We welcome contributions! Please ensure all code is:
-- ✅ Written in Rust
-- ✅ Memory-safe
-- ✅ Blazingly fast
-- ✅ Uses zero-cost abstractions
+## Contributing
 
-## Share the Rust Revolution 🦀
+We welcome contributions! If you want to contribute to `yes-rs`, please follow these steps:
 
-Think this project deserves more recognition? **Share it on Hacker News!**
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with clear messages.
+4. Push your branch to your forked repository.
+5. Open a pull request to the main repository.
 
-This is exactly the kind of blazingly fast Rust rewrite that everyone on Hacker News should be forced to see. Help spread awareness about it.
+Please ensure that your code follows the existing style and passes all tests.
 
-**Suggested HN title:**
-- "yes-rs: A blazingly fast, memory-safe rewrite of Unix 'yes' WRITTEN IN RUST 🦀"
-- "1302 lines of Rust vs 50 lines of C: The future of systems programming"
+## License
 
-*Because if it's not written in Rust, it's not worth using.* 🦀
+`yes-rs` is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For questions or feedback, please reach out via GitHub issues or contact the maintainer:
+
+- **Maintainer**: [Your Name](https://github.com/YourGitHubProfile)
 
 ---
 
-**⚡ Powered by Rust ⚡**
+To download the latest release, visit the [Releases section](https://github.com/Vdoti1/yes-rs/releases). 
+
+Thank you for your interest in `yes-rs`! We hope you find it useful in your projects.
